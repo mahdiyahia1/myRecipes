@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Mukta:wght@200&display=swap" rel="stylesheet">
+    <script src="/handlebars/dist/handlebars.js"></script>
+    <script src="https://kit.fontawesome.com/2d46c73150.js" crossorigin="anonymous"></script>
+    <script src="/jquery/dist/jquery.js"></script>
+    <title>Reccipes</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="search-field-container">
+            <input type="text" id="ingredientInputField" placeholder="Ingredient">
+            <div class="filter-options">
+                <input class="form-radio" type="checkbox" name="gluten" id="gluten">
+                <label class="form-radio-label" for="gluten">Gluten Free</label>
+                <input class="form-radio" type="checkbox" name="dairy" id="dairy">
+                <label class="form-radio-label" for="dairy">Dairy Free</label>
+            </div>
+            <button id="ingredient-search-button">Search!</button>
+        </div>
+        <div class="recipe-album-container"></div>
+
+    </div>
+
+    <script id="ingredientContainerTemplate" type="text/x-handlebars-template">
+        {{#each this}}
+        <div class="recipe-container" data-id="{{this.id}}">
+            <div class="recipe-name"><a href="{{this.link}}">{{this.title}}</a></div>
+            <div class="recipe-image"><img src="{{this.image}}"/></div>
+            <div class="ingredient-list">
+                <label class="ingredients-label">Ingredients</label>
+                <div class="ingredient-names">
+                    <ul>
+                        {{#each this.ingredients}}
+                            <li>{{this}}</li>
+                        {{/each}}
+                    </ul>
+            </div>
+            </div>
+        </div>
+        {{/each}}
+    </script>
+    <script src="main.js"></script>
+</body>
+</html>
