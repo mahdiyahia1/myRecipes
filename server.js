@@ -35,6 +35,7 @@ app.get('/recipe/:ingredient', function(req, res) {
     let ingredient = req.params.ingredient
     let glutenCheck = req.query.gluten
     let dairyCheck = req.query.dairy
+    let deleteCnt =req.guery.start
     allRecipes = []
     filteredRecipes = []
     axios.get(`${INGREDIENTS}/${ingredient}`)
