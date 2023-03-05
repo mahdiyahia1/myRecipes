@@ -9,6 +9,20 @@ const render = function(data) {
 }
 
 let favourites = []
+$(".search-field-container").on("click",".back",function (){
+    $.get(`/recipe/${ingredient}?gluten=${glutenCheck}&dairy=${dairyCheck}`).then((data) =>{
+        render(data);
+
+    }
+    );
+});
+$(".search-field-container").on("click",".next",function (){
+    $.get(`/recipe/${ingredient}?gluten=${glutenCheck}&dairy=${dairyCheck}`).then((data) =>{
+        render(data);
+
+    }
+    );
+});
 
 $("#ingredient-search-button").on("click", function() {
     let ingredient = $(this).siblings("#ingredientInputField").val()
