@@ -25,3 +25,4 @@ $(".recipe-album-container").on("click", "img", function() {
     let firstIngredient = $(this).closest(".recipe-container").find("li:first").text()
     alert(firstIngredient)
 })
+$("")

@@ -69,7 +69,8 @@ app.get('/recipe/:ingredient', function(req, res) {
                 }
                 if (dairyCheck == 1 && glutenCheck == 1) {
                     allRecipes.forEach((element) => {
-                        if (filterIngredients(element.ingredients, dairyIngredients) && filterIngredients(element.ingredients, glutenIngredients)) {
+                        if (filterIngredients(element.ingredients, dairyIngredients) && 
+                        filterIngredients(element.ingredients, glutenIngredients)) {
                             filteredRecipes.push(element)
                         }
                     })
